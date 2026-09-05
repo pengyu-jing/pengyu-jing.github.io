@@ -14,12 +14,12 @@ Then visit `http://localhost:8000`.
 
 ## Deploy with GitHub Pages
 
-1. Create a public repository named `Kigazuto.github.io` (or any repository name).
+1. Create a public repository named `pengyu-jing.github.io` (or any repository name).
 2. Upload all files in this folder to the repository root.
 3. In **Settings → Pages**, choose **Deploy from a branch**, then select the `main` branch and `/ (root)`.
 4. The site will be published after GitHub Pages finishes building.
 
-For a project repository rather than `Kigazuto.github.io`, relative links in this site already work under a subpath.
+For a project repository rather than `pengyu-jing.github.io`, relative links in this site already work under a subpath.
 
 ## Update content
 
