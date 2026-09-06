@@ -47,7 +47,9 @@ img, video { max-width: 100%; display: block; }
   position: sticky;
   top: 0;
   z-index: 20;
+  background: var(--bg);
   background: color-mix(in srgb, var(--bg) 94%, transparent);
+  -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--line);
 }
@@ -168,6 +170,7 @@ h3 { margin: 0 0 6px; font-size: 1rem; }
   transition: transform .15s ease, border-color .15s ease, color .15s ease;
 }
 .link-pill:hover {
+  border-color: var(--accent);
   border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
   color: var(--accent);
   text-decoration: none;
@@ -315,12 +318,12 @@ h3 { margin: 0 0 6px; font-size: 1rem; }
 @media (max-width: 680px) {
   .nav { padding: 10px 0; align-items: flex-start; }
   .nav-links { justify-content: flex-end; gap: 9px 13px; }
-  main { padding-top: 30px; }
+  main { padding: 30px 0 58px; }
   .hero { display: block; }
   .profile-column {
     float: none;
     width: min(72vw, 300px);
-    margin: 0 0 22px;
+    margin: 0 auto 22px;
   }
   .profile-photo { border-radius: 13px; }
   .publication { grid-template-columns: 1fr; }
@@ -330,18 +333,21 @@ h3 { margin: 0 0 6px; font-size: 1rem; }
 }
 
 @media (max-width: 520px) {
-  .container { width: min(calc(100% - 24px), var(--max-width)); }
+  .container { width: min(calc(100% - 36px), var(--max-width)); }
   .brand { display: none; }
-  .nav { justify-content: flex-end; }
-  .nav-links { justify-content: flex-start; }
-  .nav-links a:nth-of-type(3),
-  .nav-links a:nth-of-type(4),
-  .nav-links a:nth-of-type(5) { display: none; }
-  main > section:not(.hero) { margin-top: 58px; }
-  .profile-column { width: min(82vw, 290px); }
-  h1 { font-size: clamp(2.7rem, 14vw, 3.5rem); }
-  .news-list li { grid-template-columns: 1fr; gap: 0; padding: 9px 0; }
-  .awards-grid { grid-template-columns: 1fr; }
+  .nav { position: relative; justify-content: flex-start; padding-right: 40px; }
+  .nav-links { width: 100%; justify-content: flex-start; gap: 6px 9px; }
+  .nav-links a { font-size: 0.77rem; }
+  .theme-button { position: absolute; right: 0; top: 9px; width: 31px; height: 27px; }
+  main { padding: 26px 0 48px; }
+  main > section:not(.hero) { margin-top: 44px; }
+  h2 { margin-bottom: 18px; }
+  .profile-column { width: min(70vw, 250px); }
+  h1 { font-size: clamp(2.5rem, 13vw, 3.2rem); }
+  .hero-role { font-size: 0.98rem; }
+  .news-list li { grid-template-columns: 1fr; gap: 2px; padding: 8px 0; }
+  .awards-grid { grid-template-columns: 1fr; gap: 8px; }
+  .award { min-height: 0; padding: 12px 14px; }
 }
 
 @media print {
