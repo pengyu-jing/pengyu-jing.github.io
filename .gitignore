@@ -6,3 +6,9 @@ desktop.ini
 
 # 源文件不进公开仓库
 *.docx
+
+# 原始未压缩视频（网页用的是 assets/robocon-2023.mp4）
+UESTC_ROBOCON_2023_homepage.mp4
+
+# 视频源素材与中间产物，不进仓库
+videos/

@@ -231,6 +231,17 @@ h3 { margin: 0 0 6px; font-size: 1rem; }
 .timeline-date { color: var(--muted); font-size: 0.88rem; font-variant-numeric: tabular-nums; }
 .timeline-copy p { margin: 3px 0 0; color: var(--muted); }
 
+.media-figure { margin: 0 0 20px; }
+.media-figure video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: var(--shadow-soft);
+}
+.media-figure figcaption { margin-top: 9px; color: var(--muted); font-size: 0.88rem; }
+
 .awards-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
 .award {
   min-height: 84px;
