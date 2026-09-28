@@ -293,7 +293,7 @@ main > .cv-header + section.cv-section { margin-top: 30px; }
 .cv-entry-head strong { font-size: 1rem; }
 .cv-entry-head span { color: var(--muted); white-space: nowrap; font-size: 0.88rem; }
 .cv-entry em { color: var(--muted); }
-.cv-entry ul { margin: 7px 0 0; padding-left: 1.25rem; }
+.cv-entry ul { margin: 7px 0 0; padding-left: 1rem; }
 .cv-entry li { margin: 3px 0; }
 
 .site-footer {
