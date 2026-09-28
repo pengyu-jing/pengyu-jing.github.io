@@ -32,5 +32,5 @@ For a project repository rather than `pengyu-jing.github.io`, relative links in 
 ## Notes
 
 - The site uses no build step and no third-party JavaScript packages.
-- The CV page supports browser **Print / Save PDF**.
+- The CV page links to a downloadable PDF (`assets/Pengyu-Jing-CV.pdf`).
 - Dark mode follows the system preference and can also be toggled manually.
