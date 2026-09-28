@@ -267,9 +267,11 @@ h3 { margin: 0 0 6px; font-size: 1rem; }
 }
 
 /* CV page */
-.cv-header { margin: 4px 0 30px; }
+.cv-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; flex-wrap: wrap; margin: 4px 0 0; }
+.cv-header > div:first-child { flex: 1 1 260px; min-width: 0; }
+main > .cv-header + section { margin-top: 36px; }
 .cv-header p { margin: 6px 0 0; color: var(--muted); }
-.cv-actions { display: flex; gap: 9px; flex-wrap: wrap; margin-top: 16px; }
+.cv-actions { display: flex; gap: 9px; flex-wrap: wrap; flex-shrink: 0; margin-top: 6px; }
 .button {
   display: inline-flex;
   align-items: center;
