@@ -6,10 +6,16 @@
   const initial = stored || (preferredDark ? 'dark' : 'light');
   root.dataset.theme = initial;
 
+  // Inline SVG rather than the moon/sun characters: those glyphs sit off-centre
+  // inside their own em box, so the button looked misaligned however carefully
+  // the box itself was centred.
+  const ICON_MOON = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 13.3A8.5 8.5 0 1 1 10.7 3.5a6.6 6.6 0 0 0 9.8 9.8Z"/></svg>';
+  const ICON_SUN = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.1"/><path d="M12 2.8v2.1M12 19.1v2.1M4.9 4.9l1.5 1.5M17.6 17.6l1.5 1.5M2.8 12h2.1M19.1 12h2.1M4.9 19.1l1.5-1.5M17.6 6.4l1.5-1.5"/></svg>';
+
   function updateThemeButton() {
     if (!themeButton) return;
     const dark = root.dataset.theme === 'dark';
-    themeButton.textContent = dark ? '☀' : '☾';
+    themeButton.innerHTML = dark ? ICON_SUN : ICON_MOON;
     themeButton.setAttribute('aria-label', dark ? 'Use light theme' : 'Use dark theme');
     themeButton.title = dark ? 'Use light theme' : 'Use dark theme';
   }
