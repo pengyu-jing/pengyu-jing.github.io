@@ -76,6 +76,9 @@ img, video { max-width: 100%; display: block; }
 .nav-links a.active { color: var(--accent); text-decoration: none; }
 
 .theme-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 36px;
   height: 32px;
   padding: 0;
