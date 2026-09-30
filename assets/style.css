@@ -325,7 +325,10 @@ main > .cv-header + section.cv-section { margin-top: 20px; }
   .profile-photo { border-radius: 13px; }
   .publication { grid-template-columns: 1fr; }
   .pub-image { width: 100%; }
-  .timeline-item { grid-template-columns: 1fr; gap: 2px; }
+  .timeline-item { display: block; }
+  .timeline-date { display: inline; margin-right: 8px; }
+  .timeline-copy, .timeline-copy h3 { display: inline; }
+  .timeline-copy p { display: block; }
 }
 
 @media (max-width: 520px) {
@@ -341,7 +344,8 @@ main > .cv-header + section.cv-section { margin-top: 20px; }
   .profile-column { width: min(70vw, 250px); }
   h1 { font-size: clamp(2.2rem, 11vw, 2.8rem); }
   .hero-role { font-size: 0.98rem; }
-  .news-list li { grid-template-columns: 1fr; gap: 2px; padding: 8px 0; }
+  .news-list li { display: block; padding: 8px 0; }
+  .news-date { margin-right: 8px; }
   .awards-grid { grid-template-columns: 1fr; gap: 8px; }
   .award { min-height: 0; padding: 12px 14px; }
 }
