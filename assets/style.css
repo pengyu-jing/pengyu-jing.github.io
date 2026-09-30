@@ -93,7 +93,7 @@ img, video { max-width: 100%; display: block; }
 
 main { padding: 48px 0 82px; }
 section { scroll-margin-top: 78px; }
-main > section:not(.hero) { margin-top: 72px; }
+main > section:not(.hero) { margin-top: 28px; }
 
 /* Hero: the portrait floats beside the introduction so later content can naturally
    use the space beneath it instead of leaving an empty left column. */
@@ -132,25 +132,22 @@ main > section:not(.hero) { margin-top: 72px; }
 
 h1, h2, h3 { color: var(--text); line-height: 1.22; }
 h1 {
-  margin: 0 0 3px;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(3rem, 5.4vw, 4.35rem);
-  letter-spacing: -0.045em;
-  font-weight: 600;
+  margin: 0 0 6px;
+  font-size: clamp(2.6rem, 4.6vw, 3.6rem);
+  letter-spacing: -0.03em;
+  font-weight: 750;
 }
 h2 {
   margin: 0 0 22px;
   padding: 0 0 10px;
   border-bottom: 1px solid var(--line);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1.85rem, 3vw, 2.25rem);
-  letter-spacing: -0.025em;
-  font-weight: 600;
+  font-size: clamp(1.5rem, 2.4vw, 1.8rem);
+  letter-spacing: -0.015em;
+  font-weight: 720;
 }
 h3 { margin: 0 0 6px; font-size: 1rem; }
 
 .hero-role {
-  max-width: 760px;
   margin: 0 0 14px;
   color: var(--muted);
   font-size: 1.04rem;
@@ -289,8 +286,8 @@ h3 { margin: 0 0 6px; font-size: 1rem; }
 }
 .button:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
 /* beats main > section:not(.hero)'s 72px, which was overriding the intended 40px */
-main > section.cv-section { margin-top: 40px; }
-main > .cv-header + section.cv-section { margin-top: 30px; }
+main > section.cv-section { margin-top: 24px; }
+main > .cv-header + section.cv-section { margin-top: 20px; }
 .cv-entry { margin: 0 0 18px; }
 .cv-entry-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
 .cv-entry-head strong { font-size: 1rem; }
@@ -310,7 +307,7 @@ main > .cv-header + section.cv-section { margin-top: 30px; }
 @media (max-width: 820px) {
   .container { width: min(calc(100% - 36px), var(--max-width)); }
   .profile-column { width: 190px; margin-right: 25px; }
-  h1 { font-size: clamp(2.65rem, 7vw, 3.45rem); }
+  h1 { font-size: clamp(2.4rem, 6.4vw, 3.1rem); }
   .publication { grid-template-columns: 220px minmax(0, 1fr); gap: 20px; }
   .pub-image { width: 220px; }
 }
@@ -339,10 +336,10 @@ main > .cv-header + section.cv-section { margin-top: 30px; }
   .nav-links a { font-size: 0.77rem; }
   .theme-button { position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 31px; height: 27px; }
   main { padding: 26px 0 48px; }
-  main > section:not(.hero) { margin-top: 44px; }
+  main > section:not(.hero) { margin-top: 24px; }
   h2 { margin-bottom: 18px; }
   .profile-column { width: min(70vw, 250px); }
-  h1 { font-size: clamp(2.5rem, 13vw, 3.2rem); }
+  h1 { font-size: clamp(2.2rem, 11vw, 2.8rem); }
   .hero-role { font-size: 0.98rem; }
   .news-list li { grid-template-columns: 1fr; gap: 2px; padding: 8px 0; }
   .awards-grid { grid-template-columns: 1fr; gap: 8px; }
