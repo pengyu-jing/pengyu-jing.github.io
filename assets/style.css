@@ -154,8 +154,7 @@ h3 { margin: 0 0 6px; font-size: 1rem; }
   line-height: 1.48;
 }
 .hero p:not(.eyebrow):not(.hero-role):not(.highlight-line) { margin: 0 0 12px; }
-.highlight-line { margin: 3px 0 0; font-weight: 760; line-height: 1.5; }
-.profile-column .highlight-line { margin: 14px 0 0; font-size: 0.93rem; }
+.highlight-line { clear: left; margin: 3px 0 0; font-weight: 760; line-height: 1.5; }
 
 .link-row { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 17px; }
 .link-pill {
