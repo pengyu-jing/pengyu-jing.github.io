@@ -358,7 +358,7 @@ main > .cv-header + section.cv-section { margin-top: 20px; }
   .cv-header > div:first-child { display: contents; }
   .cv-header .eyebrow, .cv-header h1 { grid-column: 1; }
   .cv-header .eyebrow { margin-bottom: 12px; }
-  .cv-header h1 { margin-bottom: 10px; }
+  .cv-header h1 { margin-bottom: 4px; }
   .cv-actions { grid-column: 2; grid-row: 1 / span 2; }
   /* The line is ~27em long: size it to the container width so it fits on one line. */
   .cv-header p:not(.eyebrow) { grid-column: 1 / -1; margin-top: 8px; font-size: clamp(11px, calc((100vw - 36px) / 28.5), 14px); }
