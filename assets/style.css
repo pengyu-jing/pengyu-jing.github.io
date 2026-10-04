@@ -352,6 +352,15 @@ main > .cv-header + section.cv-section { margin-top: 20px; }
   .hero-role { font-size: 1rem; }
   .news-list li { display: block; padding: 8px 0; }
   .news-date { margin-right: 8px; }
+  /* CV header: the download button sits beside the name only, so the contact
+     line can run the full width beneath both and stay on one line. */
+  .cv-header { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0 12px; }
+  .cv-header > div:first-child { display: contents; }
+  .cv-header .eyebrow, .cv-header h1 { grid-column: 1; }
+  .cv-header h1 { margin-bottom: 0; }
+  .cv-actions { grid-column: 2; grid-row: 1 / span 2; }
+  /* The line is ~27em long: size it to the container width so it fits on one line. */
+  .cv-header p:not(.eyebrow) { grid-column: 1 / -1; font-size: clamp(11px, calc((100vw - 36px) / 28.5), 14px); }
   .awards-grid { grid-template-columns: 1fr; gap: 8px; }
   .award { min-height: 0; padding: 12px 14px; }
 }
