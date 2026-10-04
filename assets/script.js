@@ -39,6 +39,31 @@
     sections.forEach((section) => observer.observe(section));
   }
 
+  // Size the square portrait to the height of the intro text beside it, so the two
+  // end level without cropping the photo. A larger photo narrows the text and makes
+  // it taller, so repeat until the size settles; it only ever moves one way.
+  const heroTop = document.querySelector('.hero-top');
+  if (heroTop) {
+    const portrait = heroTop.querySelector('.profile-column');
+    const intro = heroTop.querySelector('.hero-content');
+    const fitPortrait = () => {
+      portrait.style.flexBasis = '';
+      if (getComputedStyle(heroTop).display !== 'flex') return;
+      for (let i = 0; i < 8; i += 1) {
+        const size = Math.round(Math.min(320, Math.max(190, intro.offsetHeight)));
+        if (Math.abs(size - portrait.offsetWidth) <= 1) break;
+        portrait.style.flexBasis = `${size}px`;
+      }
+    };
+    let frame = 0;
+    window.addEventListener('resize', () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(fitPortrait);
+    });
+    fitPortrait();
+    document.fonts?.ready.then(fitPortrait);
+  }
+
   document.querySelectorAll('[data-copy-email]').forEach((button) => {
     button.addEventListener('click', async () => {
       const email = button.dataset.copyEmail;
