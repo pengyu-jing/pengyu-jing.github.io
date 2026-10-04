@@ -95,25 +95,31 @@ main { padding: 48px 0 82px; }
 section { scroll-margin-top: 78px; }
 main > section:not(.hero) { margin-top: 28px; }
 
-/* Hero: the portrait floats beside the introduction so later content can naturally
-   use the space beneath it instead of leaving an empty left column. */
-.hero {
-  display: flow-root;
+/* Hero: the portrait sits beside the introduction and stretches to the height of
+   that text, so both end on the same line at any width; the goal line, links and
+   research note then run full width beneath them. */
+.hero-top {
+  display: flex;
+  align-items: stretch;
+  gap: clamp(28px, 3.2vw, 42px);
+  margin-bottom: 16px;
 }
 
 .profile-column {
-  float: left;
-  width: clamp(218px, 23vw, 248px);
-  margin: 1px clamp(28px, 3.2vw, 42px) 18px 0;
+  position: relative;
+  flex: 0 0 clamp(218px, 23vw, 248px);
 }
 
 .hero-content {
+  flex: 1 1 auto;
   min-width: 0;
 }
 
 .profile-photo {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  aspect-ratio: 1 / 1;
+  height: 100%;
   object-fit: cover;
   object-position: center center;
   border-radius: 14px;
@@ -153,8 +159,9 @@ h3 { margin: 0 0 6px; font-size: 1rem; }
   font-size: 1.04rem;
   line-height: 1.48;
 }
-.hero p:not(.eyebrow):not(.hero-role):not(.highlight-line) { margin: 0 0 12px; }
-.highlight-line { clear: left; margin: 3px 0 0; font-weight: 760; line-height: 1.5; }
+.hero-content p:not(.eyebrow):not(.hero-role) { margin: 0 0 12px; }
+.hero-content p:not(.eyebrow):not(.hero-role):last-child { margin-bottom: 0; }
+.highlight-line { margin: 0; font-weight: 760; line-height: 1.5; }
 
 .link-row { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 17px; }
 .link-pill {
@@ -306,7 +313,8 @@ main > .cv-header + section.cv-section { margin-top: 20px; }
 
 @media (max-width: 820px) {
   .container { width: min(calc(100% - 36px), var(--max-width)); }
-  .profile-column { width: 190px; margin-right: 25px; }
+  .hero-top { gap: 25px; }
+  .profile-column { flex-basis: 190px; }
   h1 { font-size: clamp(2.4rem, 6.4vw, 3.1rem); }
   .publication { grid-template-columns: 220px minmax(0, 1fr); gap: 20px; }
   .pub-image { width: 220px; }
@@ -316,13 +324,12 @@ main > .cv-header + section.cv-section { margin-top: 20px; }
   .nav { padding: 10px 0; align-items: flex-start; }
   .nav-links { justify-content: flex-end; gap: 9px 13px; }
   main { padding: 30px 0 58px; }
-  .hero { display: block; }
+  .hero-top { display: block; }
   .profile-column {
-    float: none;
     width: min(72vw, 300px);
     margin: 0 auto 22px;
   }
-  .profile-photo { border-radius: 13px; }
+  .profile-photo { position: static; height: auto; aspect-ratio: 1 / 1; border-radius: 13px; }
   .publication { grid-template-columns: 1fr; }
   .pub-image { width: 100%; }
   .timeline-item { display: block; }
@@ -332,6 +339,9 @@ main > .cv-header + section.cv-section { margin-top: 20px; }
 }
 
 @media (max-width: 520px) {
+  /* Phones: scale the whole type ramp down a step (most sizes are in rem). */
+  html { font-size: 14px; }
+  body { font-size: 14px; }
   .container { width: min(calc(100% - 36px), var(--max-width)); }
   .brand { display: none; }
   .nav { position: relative; justify-content: flex-start; align-items: center; min-height: 46px; padding: 8px 40px 8px 0; }
@@ -342,8 +352,8 @@ main > .cv-header + section.cv-section { margin-top: 20px; }
   main > section:not(.hero) { margin-top: 24px; }
   h2 { margin-bottom: 18px; }
   .profile-column { width: min(70vw, 250px); }
-  h1 { font-size: clamp(2.2rem, 11vw, 2.8rem); }
-  .hero-role { font-size: 0.98rem; }
+  h1 { font-size: clamp(2.1rem, 10vw, 2.5rem); }
+  .hero-role { font-size: 1rem; }
   .news-list li { display: block; padding: 8px 0; }
   .news-date { margin-right: 8px; }
   .awards-grid { grid-template-columns: 1fr; gap: 8px; }
