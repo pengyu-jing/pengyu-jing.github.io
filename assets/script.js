@@ -33,7 +33,9 @@
     const observer = new IntersectionObserver((entries) => {
       const visible = entries.filter((entry) => entry.isIntersecting)
         .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-      if (!visible) return;
+      // The homepage sections are hidden in the CV view; on a direct #cv load they
+      // can still report in before :target applies, so leave the CV highlight be.
+      if (!visible || window.location.hash === '#cv') return;
       links.forEach((link) => link.classList.toggle('active', link.getAttribute('href') === `#${visible.target.id}`));
     }, { rootMargin: '-28% 0px -60% 0px', threshold: [0.05, 0.2, 0.5] });
     sections.forEach((section) => observer.observe(section));
@@ -48,7 +50,7 @@
     const intro = heroTop.querySelector('.hero-content');
     const fitPortrait = () => {
       portrait.style.flexBasis = '';
-      if (getComputedStyle(heroTop).display !== 'flex') return;
+      if (!heroTop.offsetParent || getComputedStyle(heroTop).display !== 'flex') return;
       for (let i = 0; i < 8; i += 1) {
         const size = Math.round(Math.min(320, Math.max(190, intro.offsetHeight)));
         if (Math.abs(size - portrait.offsetWidth) <= 1) break;
@@ -60,9 +62,29 @@
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(fitPortrait);
     });
+    // The hero is hidden while the CV view is open, so measure again on return.
+    window.addEventListener('hashchange', fitPortrait);
     fitPortrait();
     document.fonts?.ready.then(fitPortrait);
   }
+
+  // #cv swaps the CV in for the homepage sections (CSS :target). Keep the nav
+  // highlight and tab title in step with whichever view is showing.
+  const homeTitle = document.title;
+  let onCv = false;
+  function syncView() {
+    const wasOnCv = onCv;
+    onCv = window.location.hash === '#cv';
+    document.title = onCv ? `CV · ${homeTitle}` : homeTitle;
+    if (onCv === wasOnCv) return;
+    const current = onCv ? '#cv' : (window.location.hash || '#about');
+    links.forEach((link) => link.classList.toggle('active', link.getAttribute('href') === current));
+    // The browser scrolls to a fragment before the CSS swap reveals it, so a
+    // jump from the CV to a homepage section has to be scrolled by hand.
+    if (wasOnCv && !onCv) document.querySelector(current)?.scrollIntoView();
+  }
+  window.addEventListener('hashchange', syncView);
+  syncView();
 
   document.querySelectorAll('[data-copy-email]').forEach((button) => {
     button.addEventListener('click', async () => {

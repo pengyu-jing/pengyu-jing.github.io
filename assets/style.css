@@ -289,9 +289,13 @@ h3 { margin: 0 0 6px; font-size: 1rem; }
   font-size: 0.88rem;
 }
 .button:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
-/* beats main > section:not(.hero)'s 72px, which was overriding the intended 40px */
-main > section.cv-section { margin-top: 24px; }
-main > .cv-header + section.cv-section { margin-top: 20px; }
+/* One page, two views: targeting #cv shows the CV in place of the homepage sections.
+   Plain :target keeps reloads, shared links and the back button working without JS. */
+.cv-view { display: none; scroll-margin-top: 200px; }
+.cv-view:target { display: block; }
+main:has(> .cv-view:target) > section { display: none; }
+.cv-view > section.cv-section { margin-top: 24px; }
+.cv-view > .cv-header + section.cv-section { margin-top: 20px; }
 .cv-entry { margin: 0 0 18px; }
 .cv-entry-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
 .cv-entry-head strong { font-size: 1rem; }
