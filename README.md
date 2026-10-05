@@ -24,7 +24,7 @@ For a project repository rather than `pengyu-jing.github.io`, relative links in 
 ## Update content
 
 - Main content: `index.html`
-- Web CV: the `#cv` block at the end of `index.html` (shown at `/#cv`)
+- Web CV: `cv.html`
 - Styling: `assets/style.css`
 - Profile image: replace `assets/profile.jpg`
 - Publication figures: replace the corresponding PNG files in `assets/`
@@ -32,5 +32,5 @@ For a project repository rather than `pengyu-jing.github.io`, relative links in 
 ## Notes
 
 - The site uses no build step and no third-party JavaScript packages.
-- The CV view links to a downloadable PDF (`assets/Pengyu-Jing-CV.pdf`).
+- The CV page links to a downloadable PDF (`assets/Pengyu-Jing-CV.pdf`).
 - Dark mode follows the system preference and can also be toggled manually.
