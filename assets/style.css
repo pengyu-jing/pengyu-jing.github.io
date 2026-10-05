@@ -91,7 +91,7 @@ img, video { max-width: 100%; display: block; }
 }
 .theme-button:hover { border-color: var(--accent); }
 
-main { padding: 48px 0 82px; }
+main { padding: 48px 0 36px; }
 section { scroll-margin-top: 78px; }
 main > section:not(.hero) { margin-top: 28px; }
 
@@ -325,7 +325,7 @@ main > .cv-header + section.cv-section { margin-top: 20px; }
 @media (max-width: 680px) {
   .nav { padding: 10px 0; align-items: flex-start; }
   .nav-links { justify-content: flex-end; gap: 9px 13px; }
-  main { padding: 30px 0 58px; }
+  main { padding: 30px 0 30px; }
   .publication { grid-template-columns: 1fr; }
   .pub-image { width: 100%; }
   .timeline-item { display: block; }
@@ -344,7 +344,7 @@ main > .cv-header + section.cv-section { margin-top: 20px; }
   .nav-links { width: 100%; justify-content: flex-start; gap: 6px 9px; }
   .nav-links a { font-size: 0.77rem; }
   .theme-button { position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 31px; height: 27px; }
-  main { padding: 26px 0 48px; }
+  main { padding: 26px 0 26px; }
   main > section:not(.hero) { margin-top: 24px; }
   h2 { margin-bottom: 18px; }
   .profile-column { width: min(70vw, 250px); }
